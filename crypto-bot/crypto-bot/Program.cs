@@ -17,7 +17,7 @@ namespace crypto_bot
         private CommandService commands;
         private DiscordSocketClient client;
         private IServiceProvider services;
-        private string BOT_TOKEN = "";
+        private readonly string BOT_TOKEN = "";
 
         static void Main(string[] args) => new Program().RunSystem().GetAwaiter().GetResult();
 
@@ -60,7 +60,17 @@ namespace crypto_bot
                     var result = await commands.ExecuteAsync(context, argPos, services);
                     if (!result.IsSuccess)
                     {
+                        if (result.ErrorReason.Contains("Unknown command.") && !context.User.IsBot)
+                        {
+                        Console.WriteLine("**LOGFILE: USER: " + context.User.Username + ", <HELP MODULE>");
+                        await context.Channel.SendMessageAsync("Howdy " + context.User.Mention + "! I'm CryptoCowboy and I'm here to help you integrate with cryptocurrencies. To get you started I've listed out some of my commands below. Go :cowboy:'s!", true);
+                        string modules = ("__*CryptoCowboy Basic Commands*__\n(1) If you want to see all available markets just say ``@CryptoCowboy M``\n(2) If you want to see all available exchanges just say ``@CryptoCowboy E``\n");
+                        await context.Channel.SendMessageAsync(modules);
+                        }
+                        else
+                        {
                         Console.WriteLine(result.ErrorReason);
+                        }
                     }
             }
         }
