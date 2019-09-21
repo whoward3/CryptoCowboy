@@ -12,3 +12,5 @@ crypto-bot/.vs/crypto-bot/v15/.suo
 *.xml
 *.CopyComplete
 *.txt
+*.p7s
+*._
