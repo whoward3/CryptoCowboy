@@ -4,3 +4,11 @@
 *.ide-shm
 *.ide-wal
 *.cache
+crypto-bot/.vs/crypto-bot/v15/.suo
+*.exe
+*.config
+*.pdb
+*.dll
+*.xml
+*.CopyComplete
+*.txt
