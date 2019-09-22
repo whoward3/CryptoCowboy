@@ -64,7 +64,7 @@ namespace crypto_bot
                         {
                         Console.WriteLine("**LOGFILE: USER: " + context.User.Username + ", <HELP MODULE>");
                         await context.Channel.SendMessageAsync("Howdy " + context.User.Mention + "! I'm CryptoCowboy and I'm here to help you integrate with cryptocurrencies. To get you started I've listed out some of my commands below. Go :cowboy:'s!", true);
-                        string modules = ("__*CryptoCowboy Basic Commands*__\n(1) If you want to see all available markets just say ``@CryptoCowboy M``\n(2) If you want to see all available exchanges just say ``@CryptoCowboy E``\n");
+                        string modules = ("__*CryptoCowboy Basic Commands*__\n(1) If you want to see all available markets just say ``@CryptoCowboy M``\n(2) If you want to see all available exchanges just say ``@CryptoCowboy E``\n(3) If you want to see all available pairs just say ``@CryptoCowboy p``\nWant to know more about #TBC#");
                         await context.Channel.SendMessageAsync(modules);
                         }
                         else
