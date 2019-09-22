@@ -10,6 +10,7 @@ namespace crypto_bot
 {
     public class Commands : ModuleBase<SocketCommandContext>
     {
+        Cryptowatch cryptowatch = new Cryptowatch();
         [Command("m")]
         public async Task SHOW_MARKETS()
         {
@@ -18,6 +19,8 @@ namespace crypto_bot
                 Console.WriteLine("**LOGFILE: USER: " + Context.User.Username + ", <SHOW MARKETS MODULE>");
                 var user = Context.User as SocketGuildUser;
                 await Context.Channel.SendMessageAsync("__The current available markets are:__");
+
+                cryptowatch.getMarkets();
             }
             catch (Exception a)
             {
@@ -32,6 +35,7 @@ namespace crypto_bot
                 Console.WriteLine("**LOGFILE: USER: " + Context.User.Username + ", <SHOW EXCHANGES MODULE>");
                 var user = Context.User as SocketGuildUser;
                 await Context.Channel.SendMessageAsync("__The current available exchanges are:__");
+                cryptowatch.getExchanges();
             }
             catch (Exception a)
             {

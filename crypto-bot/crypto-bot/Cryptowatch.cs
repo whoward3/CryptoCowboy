@@ -8,7 +8,6 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
-
 namespace crypto_bot
 {
     public class Cryptowatch
@@ -27,7 +26,7 @@ namespace crypto_bot
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        public void getAssetss()
+        public void getAssets()
         {
 
         }
