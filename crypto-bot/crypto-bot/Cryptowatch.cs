@@ -50,8 +50,8 @@ namespace crypto_bot
     }
     public class OfferPrice
     {
-        public int last { get; set; }
-        public int high { get; set; }
+        public double last { get; set; }
+        public double high { get; set; }
         public double low { get; set; }
         public OfferChange change { get; set; }
     }

@@ -10,6 +10,10 @@ namespace crypto_bot
 {
     public class Commands : ModuleBase<SocketCommandContext>
     {
+        protected Random randomSeed = new Random();
+
+        public static string[] facts = new string[] {"In the past two legislative sessions, Wyoming lawmakers have passed 13 new blockchain laws!"};
+
         [Command("e")]
         public async Task SHOW_EXCHANGES()
         {
@@ -114,6 +118,22 @@ namespace crypto_bot
                 Console.WriteLine("**LOGFILE: USER: " + Context.User.Username + ", <SHOW WB MODULE>");
                 var user = Context.User as SocketGuildUser;
                 await Context.Channel.SendMessageAsync("First of all, what is Blockchain Technology? Blockchain stores data, like transaction, sender, receiver, etc., in a block as a hash. Just like a cubical, it has different sides. The front side stores the previous hash, the backside stores hash for the current block. Wyoming is the only state in the U.S. that has laws set up for Blockchain. What a great opportunity! ");
+            }
+            catch (Exception a)
+            {
+                Console.Write("+++SHOW WB ERROR: CRASH: " + a);
+            }
+        }
+
+        [Command("!")]
+        public async Task LEARN_RANDOM()
+        {
+            try
+            {
+                Console.WriteLine("**LOGFILE: USER: " + Context.User.Username + ", <LEARN MODULE>");
+                var user = Context.User as SocketGuildUser;
+                int i = randomSeed.Next(facts.Length);
+                await Context.Channel.SendMessageAsync("**Did you know:**\n"+facts[i]);            
             }
             catch (Exception a)
             {
