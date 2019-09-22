@@ -29,7 +29,7 @@ namespace crypto_bot
                     string output = "```";
                     for (int i = 0; i < res.Count; i++)
                     {
-                        output = output + res[i] + "\n";
+                        output = output + res[i].ToString().Replace(" ", "-") + "\n";
                     }
                     await Context.Channel.SendMessageAsync("__The current available exchanges are:__");
                     await Context.Channel.SendMessageAsync(output + "```");
@@ -53,6 +53,8 @@ namespace crypto_bot
                 Console.WriteLine("**LOGFILE: USER: " + Context.User.Username + ", <SHOW MARKETS MODULE>");
                 var user = Context.User as SocketGuildUser;
                 Cryptowatch cryptowatch = new Cryptowatch();
+                //Sanitize Input for " "
+                paramInput = paramInput.Replace(" ", "-");
                 var res = await cryptowatch.GetMarket(paramInput);
                 if (res.Count > 0)
                 {
@@ -60,7 +62,7 @@ namespace crypto_bot
                     string output = "```";
                     for (int i = 0; i < res.Count; i++)
                     {
-                        output = output + res[i].ToString().ToUpper() + "\n";
+                        output = output + res[i].ToString().ToUpper().Replace(" ","-") + "\n";
                     }
                     await Context.Channel.SendMessageAsync("__The "+paramInput+" exchange is offering:__");
                     await Context.Channel.SendMessageAsync(output + "```");
@@ -111,7 +113,7 @@ namespace crypto_bot
         }
 
         [Command("Wyoming Blockchain")]
-        public async Task SHOW_WB()
+        public async Task LEARN_WB()
         {
             try
             {
