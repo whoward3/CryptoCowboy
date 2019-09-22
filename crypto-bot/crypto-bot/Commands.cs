@@ -38,7 +38,7 @@ namespace crypto_bot
                 }
                 else
                 {
-                    await Context.Channel.SendMessageAsync("I couldn't find any available exchanges, please check back later.");
+                    await Context.Channel.SendMessageAsync("I couldn't find any available exchanges, please check back later.",true);
                 }
             }
             catch (Exception a)
@@ -71,7 +71,7 @@ namespace crypto_bot
                 }
                 else
                 {
-                    await Context.Channel.SendMessageAsync("I couldn't find any market information about that exchange, please recheck the exchange name you gave me.");
+                    await Context.Channel.SendMessageAsync("I couldn't find any market information about that exchange, please recheck the exchange name you gave me.",true);
                 }
             }
             catch (Exception a)
@@ -101,11 +101,11 @@ namespace crypto_bot
                             | "Min Price:" min(6)
                  */
                     await Context.Channel.SendMessageAsync("__Detailed Offer Information For "+pair.ToUpper()+" Currency Exchanges From The "+market+" Exchange__");
-                    await Context.Channel.SendMessageAsync("```"+res[0]+" | "+res[1]+"\n\t"+"Volume: "+ Math.Round((double)res[2],2)+" | "+"Change:"+Math.Round((double)res[3], 2)+"%\n\t | "+"Last Price:"+res[4]+"\n\t | "+"High Price: "+res[5]+ "\n\t | " + "Low Price: " + res[6]+"```");
+                    await Context.Channel.SendMessageAsync("```"+res[0]+" | "+res[1]+"\n\t"+"Volume: "+ Math.Round((double)res[2],2)+" | "+"Change: "+Math.Round((double)res[3], 2)+"%\n\t | "+"Last Price: "+res[4]+"\n\t | "+"High Price: "+res[5]+ "\n\t | " + "Low Price: " + res[6]+"```");
                 }
                 else
                 {
-                    await Context.Channel.SendMessageAsync("I couldn't find detailed offer information for that offer and exchange, please recheck the exchange name and offer pair you gave me.");
+                    await Context.Channel.SendMessageAsync("I couldn't find detailed offer information for that offer and exchange, please recheck the exchange name and offer pair you gave me.",true);
                 }
             }
             catch (Exception a)
@@ -137,7 +137,7 @@ namespace crypto_bot
                 Console.WriteLine("**LOGFILE: USER: " + Context.User.Username + ", <LEARN MODULE>");
                 var user = Context.User as SocketGuildUser;
                 int i = randomSeed.Next(facts.Length);
-                await Context.Channel.SendMessageAsync("**Did you know:**\n"+facts[i]);            
+                await Context.Channel.SendMessageAsync("**Did you know:**\n"+facts[i],true);            
             }
             catch (Exception a)
             {
