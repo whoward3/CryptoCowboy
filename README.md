@@ -1,6 +1,5 @@
-# CryptoCowboy
-![alt text](https://github.com/whoward3/crypto-bot/blob/master/docs/CryptoCowboy.PNG?raw=true? "CryptoCowboy")
-## Team: *goWY*
+# CryptoCowboy for WyoHackathon 2019 by Team
+![alt text](https://github.com/whoward3/CryptoCowboy/blob/master/docs/Team%20Logo.png?raw=true "Team goWY")
 CryptoCowboy is a Discord Plugin that interfaces with the Cryptowatch REST API to provide Wyomingites information about exchanges and introduce Wyomingites to Cryptocurrencies on Discord!
 
 ## [Add CryptoCowboy To Your Discord Server!](https://discordapp.com/api/oauth2/authorize?client_id=625057564195029013&permissions=0&scope=bot)
