@@ -79,7 +79,7 @@ namespace crypto_bot
             {
                 Console.WriteLine("**LOGFILE: USER: " + Context.User.Username + ", <SHOW WB MODULE>");
                 var user = Context.User as SocketGuildUser;
-                await Context.Channel.SendMessageAsync("First of all, what is Blockchain Technology? Blockchain stores data, like transaction, sender, receiver, etc., in a block as a hash. Just like a cubical, it has different sides. The front side stores the previous hash, the backside stores hash for the current block. Wyoming is the only state in the U.S. that has laws set up for Blockchain. What a great opportunity! ");
+                await Context.Channel.SendMessageAsync("First of all, what is Blockchain Technology? According to Investopedia, blockchain is a chain of blocks and they store information about transactions like the sender/receiver, date/time, and amount of your most recent purchase. It's a secure way to store data as no one (except the owner who owns more than 50% of the chain) has access./n /n Now that we know some basics, let's take a look at the business side! Wyoming is the only state in the U.S. that has laws set up for Blockchain. What a great opportunity!  Caitlin Long, a Wall Street veteran, had some great thoughts about it in her article _What Do Wyoming's 13 New Blockchain Laws Mean ? _");
             }
             catch (Exception a)
             {
