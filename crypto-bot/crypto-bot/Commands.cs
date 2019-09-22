@@ -79,31 +79,13 @@ namespace crypto_bot
             {
                 Console.WriteLine("**LOGFILE: USER: " + Context.User.Username + ", <SHOW WB MODULE>");
                 var user = Context.User as SocketGuildUser;
-                await Context.Channel.SendMessageAsync("Wyoming is the ONLY state in the U.S. that has blockchian laws set up fully, read this article written by Caitlin Long for more details: What Do Wyoming's 13 New Blockchain Laws Mean? https://www.forbes.com/sites/caitlinlong/2019/03/04/what-do-wyomings-new-blockchain-laws-mean/#62d3a0375fde");
-                //cryptowatch.getExchanges();
+                await Context.Channel.SendMessageAsync("First of all, what is Blockchain Technology? Blockchain stores data, like transaction, sender, receiver, etc., in a block as a hash. Just like a cubical, it has different sides. The front side stores the previous hash, the backside stores hash for the current block. Wyoming is the only state in the U.S. that has laws set up for Blockchain. What a great opportunity! ");
             }
             catch (Exception a)
             {
                 Console.Write("+++SHOW WB ERROR: CRASH: " + a);
             }
         }
-
-        [Command("What is Cryptowatch")]
-        public async Task SHOW_CW()
-        {
-            try
-            {
-                Console.WriteLine("**LOGFILE: USER: " + Context.User.Username + ", <SHOW CW MODULE>");
-                var user = Context.User as SocketGuildUser;
-                await Context.Channel.SendMessageAsync("Cryptowatch is a platform for the cryptocurrency markets. Our mission is to provide one powerful interface to scan prices, analyze market movements, and make trades on every major exchange. For more information, please visit https://cryptowat.ch/about");
-                //cryptowatch.getExchanges();
-            }
-            catch (Exception a)
-            {
-                Console.Write("+++SHOW CW ERROR: CRASH: " + a);
-            }
-        }
-
 
 
     }

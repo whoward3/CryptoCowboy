@@ -63,8 +63,8 @@ namespace crypto_bot
                         if (result.ErrorReason.Contains("Unknown command.") && !context.User.IsBot)
                         {
                         Console.WriteLine("**LOGFILE: USER: " + context.User.Username + ", <HELP MODULE>");
-                        await context.Channel.SendMessageAsync("Howdy " + context.User.Mention + "! I'm CryptoCowboy and I'm here to help you integrate with cryptocurrencies. To get you started I've listed out some of my commands below. Go :cowboy:'s!", true);
-                        string modules = ("__*CryptoCowboy Basic Commands*__\n(1) If you want to see all available markets just say ``@CryptoCowboy M``\n(2) If you want to see all available exchanges just say ``@CryptoCowboy E``\n(3) If you want to see all available pairs just say ``@CryptoCowboy p``\nWant to know more about #TBC#");
+                        await context.Channel.SendMessageAsync("Howdy " + context.User.Mention + "! I'm CryptoCowboy and I'm here to help you integrate with cryptocurrencies using Cryptowatch by @Kraken. Cryptowatch is a platform for the cryptocurrency markets. It provides a powerful interface to scan prices, analyze market movements, and make trades on every major exchange. For more information, please visit https://cryptowat.ch/about \n \n To get you started I've listed out some of my commands below. Go :cowboy:'s!", true);
+                        string modules = ("__*CryptoCowboy Basic Commands*__\n(1) If you want to see all available exchanges just type in ``@CryptoCowboy E``\n(2) To show offerings for an exchange just type in ``@CryptoCowboy M #Replace with Exchange name#``\n(3) To display all details of your offer ``@CryptoCowboy 0 #Replace with Exchange Name# #Replace with Offer Name# ``\n \n Interested in the Blockchain business in Wyoming? Just type in ``@CryptoCowboy Wyoming Blockchain``");
                         await context.Channel.SendMessageAsync(modules);
                         }
                         else
