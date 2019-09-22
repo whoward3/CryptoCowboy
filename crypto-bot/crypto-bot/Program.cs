@@ -17,7 +17,7 @@ namespace crypto_bot
         private CommandService commands;
         private DiscordSocketClient client;
         private IServiceProvider services;
-        private readonly string BOT_TOKEN = "NjI1MDU3NTY0MTk1MDI5MDEz.XYaGMw.ejTZ8STw5BmM-WQerQzQ79I6XxM";
+        private readonly string BOT_TOKEN = "";
 
         static void Main(string[] args) => new Program().RunSystem().GetAwaiter().GetResult();
 

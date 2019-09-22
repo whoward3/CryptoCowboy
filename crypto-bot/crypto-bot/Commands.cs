@@ -13,8 +13,8 @@ namespace crypto_bot
         protected Random randomSeed = new Random();
 
         public static string[] facts = new string[] {"In the past two legislative sessions, Wyoming lawmakers have passed 13 new blockchain laws!", "According to NewsWeek, Wyoming is the **CRYPTOCURRENCY CAPITAL** of the U.S.",
-            "Wyoming is the **ONLY** state that has laws set up", "H.B.0070 is the bill that the State of Wyoming just introduced regarding blockchain", "The first paper about blockchain was published by Satoshi Nakamoto",
-            "Satoshi Nakamoto is the name used by the pseudonymous person or persons who developed bitcoin", "_Investopedia_ thinks 'there're three people who were supposedly Bitcoin Founder': Dorian Nakamoto, Craig Wright, and Nick Szabo"};
+           "H.B.0070 is the bill that the State of Wyoming just introduced regarding blockchain", "The first paper about blockchain was published by Satoshi Nakamoto",
+            "Satoshi Nakamoto is the name used by the pseudonymous person or persons who developed bitcoin", "_Investopedia_ thinks 'there are three people who might be the bitcoin founder': Dorian Nakamoto, Craig Wright, and Nick Szabo"};
 
         [Command("e")]
         public async Task SHOW_EXCHANGES()
