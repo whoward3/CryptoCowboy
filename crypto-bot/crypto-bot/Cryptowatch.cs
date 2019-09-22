@@ -43,12 +43,62 @@ namespace crypto_bot
         public List<MarketResult> result { get; set; }
         public Allowance allowance { get; set; }
     }
+    public class OfferChange
+    {
+        public double percentage { get; set; }
+        public double absolute { get; set; }
+    }
+    public class OfferPrice
+    {
+        public double last { get; set; }
+        public double high { get; set; }
+        public double low { get; set; }
+        public OfferChange change { get; set; }
+    }
+    public class OfferResult
+    {
+        public OfferPrice price { get; set; }
+        public double volume { get; set; }
+        public double volumeQuote { get; set; }
+    }
+    public class OfferRoot
+    {
+        public OfferResult result { get; set; }
+        public Allowance allowance { get; set; }
+    }
 
     public class Cryptowatch
     {
         private static HttpClient client = new HttpClient();
 
-        public async Task<ArrayList> getMarket(string param)
+        public async Task<ArrayList> GetOffer(string market,string pair)
+        {
+            ArrayList result = new ArrayList();
+            try
+            {
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = await client.GetAsync("https://api.cryptowat.ch/markets/"+market+"/"+ pair+"/summary");
+                response.EnsureSuccessStatusCode();
+                string responseBody = await response.Content.ReadAsStringAsync();
+                OfferRoot jsonResult = JsonConvert.DeserializeObject<OfferRoot>(responseBody);
+                /*Result Structure
+                Exchange(0) | pair(1)
+                    "Offer Volume:" volume(2) | "% Change:" change(3)
+                            | "Last Price:" last(4) 
+                            | "Max Price:" max(5)
+                            | "Min Price:" min(6)
+                 */
+                result.Add(market); result.Add(pair); result.Add(jsonResult.result.volume); result.Add(jsonResult.result.price.change.percentage);
+                result.Add(jsonResult.result.price.last); result.Add(jsonResult.result.price.high); result.Add(jsonResult.result.price.low);
+            }
+            catch (Exception a)
+            {
+                Console.Write("+++GET MARKET ERROR: CRASH: " + a);
+            }
+            return result;
+        }
+
+        public async Task<ArrayList> GetMarket(string param)
         {
             ArrayList result = new ArrayList();
             try
@@ -70,7 +120,7 @@ namespace crypto_bot
             return result;
         }
 
-        public async Task<ArrayList> getExchanges()
+        public async Task<ArrayList> GetExchanges()
         {
             ArrayList result = new ArrayList();
             try
