@@ -81,19 +81,19 @@ namespace crypto_bot
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
                 OfferRoot jsonResult = JsonConvert.DeserializeObject<OfferRoot>(responseBody);
-                /*Result Structure
-                Exchange(0) | pair(1)
-                    "Offer Volume:" volume(2) | "% Change:" change(3)
-                            | "Last Price:" last(4) 
-                            | "Max Price:" max(5)
-                            | "Min Price:" min(6)
+                /*Resulting Structure
+                 *Exchange(0) | pair(1)
+                 *   "Offer Volume:" volume(2) | "% Change:" change(3)
+                 *           | "Last Price:" last(4) 
+                 *           | "Max Price:" max(5)
+                 *           | "Min Price:" min(6)
                  */
                 result.Add(market); result.Add(pair); result.Add(jsonResult.result.volume); result.Add(jsonResult.result.price.change.percentage);
                 result.Add(jsonResult.result.price.last); result.Add(jsonResult.result.price.high); result.Add(jsonResult.result.price.low);
             }
             catch (Exception a)
             {
-                Console.Write("+++GET MARKET ERROR: CRASH: " + a);
+                Console.Write("+++GET OFFER ERROR: CRASH: " + a);
             }
             return result;
         }
@@ -138,7 +138,7 @@ namespace crypto_bot
             }
             catch(Exception a)
             {
-                Console.Write("+++GET MARKET ERROR: CRASH: " + a);
+                Console.Write("+++GET EXCHANGE ERROR: CRASH: " + a);
             }
             return result;
         }

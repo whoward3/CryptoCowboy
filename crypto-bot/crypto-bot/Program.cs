@@ -80,7 +80,6 @@ namespace crypto_bot
         private Task Log(LogMessage arg)
         {
             Console.WriteLine(arg);
-
             return Task.CompletedTask;
         }
     }

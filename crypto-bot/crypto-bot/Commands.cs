@@ -12,9 +12,12 @@ namespace crypto_bot
     {
         protected Random randomSeed = new Random();
 
-        public static string[] facts = new string[] {"In the past two legislative sessions, Wyoming lawmakers have passed 13 new blockchain laws!", "According to NewsWeek, Wyoming is the **CRYPTOCURRENCY CAPITAL** of the U.S.",
-           "H.B.0070 is the bill that the State of Wyoming just introduced regarding blockchain", "The first paper about blockchain was published by Satoshi Nakamoto",
-            "Satoshi Nakamoto is the name used by the pseudonymous person or persons who developed bitcoin", "_Investopedia_ thinks 'there are three people who might be the bitcoin founder': Dorian Nakamoto, Craig Wright, and Nick Szabo"};
+        public static string[] facts = new string[] {"In the past two legislative sessions, Wyoming lawmakers have passed 13 new blockchain laws!",
+                                                     "According to NewsWeek, Wyoming is the **CRYPTOCURRENCY CAPITAL** of the U.S.",
+                                                     "H.B.0070 is the bill that the State of Wyoming just introduced regarding blockchain",
+                                                     "The first paper about blockchain was published by Satoshi Nakamoto",
+                                                     "Satoshi Nakamoto is the name used by the pseudonymous person or persons who developed bitcoin", 
+                                                     "_Investopedia_ thinks 'there are three people who might be the bitcoin founder': Dorian Nakamoto, Craig Wright, and Nick Szabo"};
 
         [Command("e")]
         public async Task SHOW_EXCHANGES()
@@ -110,7 +113,7 @@ namespace crypto_bot
             }
             catch (Exception a)
             {
-                Console.Write("+++SHOW MARKETS ERROR: CRASH: " + a);
+                Console.Write("+++SHOW OFFER ERROR: CRASH: " + a);
             }
         }
 
@@ -119,29 +122,29 @@ namespace crypto_bot
         {
             try
             {
-                Console.WriteLine("**LOGFILE: USER: " + Context.User.Username + ", <SHOW WB MODULE>");
+                Console.WriteLine("**LOGFILE: USER: " + Context.User.Username + ", <LEARN WB MODULE>");
                 var user = Context.User as SocketGuildUser;
                 await Context.Channel.SendMessageAsync("First of all, what is Blockchain Technology? According to Investopedia, blockchain is a chain of blocks and they store information about transactions like the sender/receiver, date/time, and amount of your most recent purchase. It's a secure way to store data as no one (except the owner who owns more than 50% of the chain) has access.\n \n Now that we know some basics, let's take a look at the business side! Wyoming is the only state in the U.S. that has laws set up for Blockchain. What a great opportunity!  Caitlin Long, a Wall Street veteran, has some great thoughts about it in her article _What Do Wyoming's 13 New Blockchain Laws Mean ? _. \n All of these factors make Wyoming a perfect place to start a blockchain business, for example, create a cryptocurrency economy class that teaches people how it works and the current markets and exchanges, a wind power company that generates electricity for miners, etc. ");
             }
             catch (Exception a)
             {
-                Console.Write("+++SHOW WB ERROR: CRASH: " + a);
+                Console.Write("+++LEARN WB ERROR: CRASH: " + a);
             }
         }
 
         [Command("!")]
-        public async Task LEARN_RANDOM()
+        public async Task LEARN_FACTS()
         {
             try
             {
-                Console.WriteLine("**LOGFILE: USER: " + Context.User.Username + ", <LEARN MODULE>");
+                Console.WriteLine("**LOGFILE: USER: " + Context.User.Username + ", <LEARN FACTS MODULE>");
                 var user = Context.User as SocketGuildUser;
                 int i = randomSeed.Next(facts.Length);
                 await Context.Channel.SendMessageAsync("**Did you know:**\n"+facts[i],true);            
             }
             catch (Exception a)
             {
-                Console.Write("+++SHOW WB ERROR: CRASH: " + a);
+                Console.Write("+++LEARN FACTS ERROR: CRASH: " + a);
             }
         }
 
